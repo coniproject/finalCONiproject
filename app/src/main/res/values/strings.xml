@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Coni_Final</string>
+    <string name="CONi">CONi</string>
+    <string name="signup">signup</string>
+    <string name="login">login</string>
+    <string name="username">username</string>
+    <string name="Username">Username</string>
+    <string name="password">Password</string>
+    <string name="lastname">Last Name</string>
+    <string name="firstname">First Name</string>
+    <string name="age">Age</string>
+    <string name="next">Continue</string>
+    <string name="emailaddress">Email Address</string>
+    <string name="contactnumber">Contact Number</string>
+    <string name="confirmpass">Confirm Password</string>
+
+    <string name="google_maps_API_key"> AIzaSyDKNJyIaDzu7oRy84xqlVbOZ99-jCumD3g </string>
+</resources>

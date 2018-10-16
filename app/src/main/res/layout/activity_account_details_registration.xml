@@ -1,0 +1,92 @@
+<android.support.v7.widget.LinearLayoutCompat xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AccountDetailsRegistration"
+    background="#FFF9C4"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <!-- Add CONi icon here -->
+            <EditText
+                android:id="@+id/usernamereg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100sp"
+                android:ems="10"
+                android:hint="@string/Username"
+                android:inputType="textPersonName"
+                />
+
+            <EditText
+                android:id="@+id/passwordreg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:ems="10"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                />
+
+
+
+
+            <EditText
+                android:id="@+id/confirmpass"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="20sp"
+                android:ems="10"
+                android:hint="@string/confirmpass"
+                android:inputType="textPassword"
+                />
+
+            <CheckBox
+                android:id="@+id/chkconditions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="By clicking Sign Up, you accept the terms of conditions and Privacy Policy of CONi."
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="30dp"/>
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom">
+
+
+        <Button
+            android:id="@+id/btnregister"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ED820E"
+            android:textSize="20sp"
+            android:text="@string/signup"
+            />
+    </LinearLayout>
+
+
+</android.support.v7.widget.LinearLayoutCompat>

@@ -1,0 +1,132 @@
+<android.support.v7.widget.LinearLayoutCompat xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GuardianDeviceRegistration"
+    background="#FFF9C4"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+        <!-- Add CONi icon here -->
+            <EditText
+                android:id="@+id/editlastname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100sp"
+                android:ems="10"
+                android:hint="@string/lastname"
+                android:inputType="textPersonName"
+                />
+
+            <EditText
+                android:id="@+id/editfirstname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:ems="10"
+                android:hint="@string/firstname"
+                android:inputType="textPersonName"
+                />
+
+
+
+
+            <EditText
+                android:id="@+id/editage"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="20sp"
+                android:ems="10"
+                android:hint="@string/age"
+                android:inputType="number"
+
+                />
+            
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20sp">
+                
+                <RadioButton
+                    android:id="@+id/rdbmale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:textSize="20sp"
+                    android:textColorHint="@color/colorPrimary"
+                    android:gravity="center"
+                    android:paddingLeft="5sp"
+                    android:layout_marginRight="10sp"/>
+
+                <RadioButton
+                    android:id="@+id/rdbfemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:textSize="20sp"
+                    android:textColorHint="@color/colorPrimary"
+                    android:gravity="center"
+                    android:paddingLeft="5sp"
+                    />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/editemailadd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:ems="10"
+                android:hint="@string/emailaddress"
+                android:inputType="textEmailAddress"
+                />
+
+            <EditText
+                android:id="@+id/editcontactnumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:ems="10"
+                android:hint="@string/contactnumber"
+                android:inputType="phone"
+                />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom">
+
+
+        <Button
+            android:id="@+id/btncontinue"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ED820E"
+            android:textSize="20sp"
+            android:text="@string/next"
+            />
+    </LinearLayout>
+
+
+</android.support.v7.widget.LinearLayoutCompat>
