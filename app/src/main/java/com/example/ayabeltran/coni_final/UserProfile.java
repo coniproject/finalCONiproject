@@ -3,15 +3,21 @@ package com.example.ayabeltran.coni_final;
 import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.nfc.Tag;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -27,7 +33,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
-public class UserProfile extends AppCompatActivity {
+public class UserProfile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private static final String TAG = "UserProfile";
     private static final int ERROR_DIALOG_REQUEST = 9001;
@@ -43,11 +49,28 @@ public class UserProfile extends AppCompatActivity {
     GoogleMap mGoogleMap;
     private static final float DEFAULT_ZOOM = 15f;
 
+    //layout
+    private DrawerLayout mDrawerlayout;
+    private ActionBarDrawerToggle mToggle;
+    NavigationView navigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+
+        mDrawerlayout= findViewById(R.id.profilenav);
+
+        mToggle = new ActionBarDrawerToggle(UserProfile.this,mDrawerlayout, R.string.open, R.string.close);
+
+        mDrawerlayout.addDrawerListener(mToggle);
+        mToggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        navigationView = findViewById(R.id.navview);
+        navigationView.setNavigationItemSelectedListener(this);
+
 
 
         if (checkGoogleServices()) {
@@ -55,6 +78,14 @@ public class UserProfile extends AppCompatActivity {
         }
 
         getLocationPermission();
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+
+        if(mToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void init() {
@@ -186,5 +217,50 @@ public class UserProfile extends AppCompatActivity {
         Log.d(TAG,"Moving Location to lng : " + latlng.latitude + ", lng : " + latlng.longitude);
         mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng, zoom));
 
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        if(id == R.id.addmember) {
+            Intent toFamReg = new Intent(UserProfile.this, FamilyRegistration.class);
+            startActivity(toFamReg);
+            finish();
+            mDrawerlayout.closeDrawers();
+        }
+       if(id == R.id.locupdates) {
+           Intent toLocationUp = new Intent(UserProfile.this, LocationUpdates.class);
+           startActivity(toLocationUp);
+           finish();
+           mDrawerlayout.closeDrawers();
+        }
+        if(id == R.id.setsafezones) {
+            Intent toSafeZones = new Intent(UserProfile.this, SafeZonesList.class);
+            startActivity(toSafeZones);
+            finish();
+            mDrawerlayout.closeDrawers();
+        }
+       if(id == R.id.hotlines) {
+           Intent toHotlines = new Intent(UserProfile.this, NearbyPlacesHotlines.class);
+           startActivity(toHotlines);
+           finish();
+           mDrawerlayout.closeDrawers();
+        }
+        if(id == R.id.acctmanage) {
+            Intent toAccSet = new Intent(UserProfile.this, AccountSettings.class);
+            startActivity(toAccSet);
+            finish();
+            mDrawerlayout.closeDrawers();
+        }
+       if(id ==R.id.logout) {
+            Intent toLogin = new Intent(UserProfile.this, UserLogin.class);
+            startActivity(toLogin);
+           finish();
+           mDrawerlayout.closeDrawers();
+        }
+
+        return false;
     }
 }

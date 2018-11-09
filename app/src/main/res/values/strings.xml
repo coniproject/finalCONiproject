@@ -15,4 +15,14 @@
     <string name="confirmpass">Confirm Password</string>
 
     <string name="google_maps_API_key"> AIzaSyDKNJyIaDzu7oRy84xqlVbOZ99-jCumD3g </string>
+    <string name="addmember">Add Family Member</string>
+    <string name="locupdates"> Location Updates</string>
+    <string name="safezones">Safe Zones</string>
+    <string name="hotline">Hotline Suggestion</string>
+    <string name="accsettings">Manage Account</string>
+    <string name="logout">Logout</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
 </resources>

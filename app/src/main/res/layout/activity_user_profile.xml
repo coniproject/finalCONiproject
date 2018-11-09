@@ -1,7 +1,7 @@
-<android.support.v7.widget.LinearLayoutCompat xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.v4.widget.DrawerLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/relativeLayout"
+    android:id="@+id/profilenav"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UserProfile"
@@ -9,11 +9,22 @@
     android:orientation="vertical"
     android:gravity="center">
 
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navview"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:background="@color/white"
+        app:itemTextColor="@color/menutextcolor"
+        app:menu="@menu/drawermenu"
+        android:layout_gravity="left">
+    </android.support.design.widget.NavigationView>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:android="http://schemas.android.com/apk/res/android">
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,13 +41,13 @@
                 android:layout_height="350dp"/>
 
 
-
-
-
-
         </LinearLayout>
 
     </ScrollView>
 
 
-</android.support.v7.widget.LinearLayoutCompat>
+
+
+
+
+</android.support.v4.widget.DrawerLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/addmember"
+        android:title="@string/addmember"
+        android:icon="@drawable/user"/>
+    <item android:id="@+id/locupdates"
+        android:title="@string/locupdates"
+        android:icon="@drawable/eye"/>
+    <item android:id="@+id/setsafezones"
+        android:title="@string/safezones"
+        android:icon="@drawable/icon"/>
+    <item android:id="@+id/hotlines"
+        android:title="@string/hotline"
+        android:icon="@drawable/telephone"/>
+    <item android:id="@+id/acctmanage"
+        android:title="@string/accsettings"
+        android:icon="@drawable/settings"/>
+    <item android:id="@+id/logout"
+        android:title="@string/logout"
+        android:icon="@drawable/logout" />
+
+</menu>

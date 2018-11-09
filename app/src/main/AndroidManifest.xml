@@ -2,15 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ayabeltran.coni_final">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-
-
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/CONi"
@@ -20,10 +17,9 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDKNJyIaDzu7oRy84xqlVbOZ99-jCumD3g"/>
+            android:value="AIzaSyDKNJyIaDzu7oRy84xqlVbOZ99-jCumD3g" />
 
         <activity android:name=".Home">
             <intent-filter>
@@ -35,11 +31,13 @@
         <activity android:name=".GuardianDeviceRegistration" />
         <activity android:name=".UserLogin" />
         <activity android:name=".AccountDetailsRegistration" />
-        <activity android:name=".MapActivity"/>
-        <activity android:name=".UserProfile">
-        </activity>
-
-
+        <activity android:name=".MapActivity" />
+        <activity android:name=".UserProfile" />
+        <activity android:name=".FamilyRegistration" />
+        <activity android:name=".LocationUpdates" />
+        <activity android:name=".SafeZonesList" />
+        <activity android:name=".AccountSettings" />
+        <activity android:name=".NearbyPlacesHotlines"></activity>
     </application>
 
 </manifest>
