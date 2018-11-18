@@ -21,6 +21,8 @@
             android:gravity="center">
 
         <!-- Add CONi icon here -->
+
+
             <EditText
                 android:id="@+id/editlastname"
                 android:layout_width="wrap_content"
@@ -28,8 +30,9 @@
                 android:layout_marginTop="100sp"
                 android:ems="10"
                 android:hint="@string/lastname"
-                android:inputType="textPersonName"
-                />
+                android:inputType="textPersonName" />
+
+
 
             <EditText
                 android:id="@+id/editfirstname"
@@ -41,14 +44,32 @@
                 android:inputType="textPersonName"
                 />
 
+            <EditText
+                android:id="@+id/editmi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:ems="10"
+                android:hint="Middle Initial"
+                android:inputType="textPersonName" />
 
+            <TextView
+                android:id="@+id/editbdate"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="20sp"
+                android:ems="10"
+                android:hint=" Select Birthday"
+                android:textSize="18dp"
+
+                />
 
 
             <EditText
                 android:id="@+id/editage"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:layout_marginTop="20sp"
+                android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="@string/age"
                 android:inputType="number"
@@ -63,6 +84,7 @@
                 
                 <RadioButton
                     android:id="@+id/rdbmale"
+                    android:onClick="RadioButtonClicked"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Male"
@@ -74,6 +96,7 @@
 
                 <RadioButton
                     android:id="@+id/rdbfemale"
+                    android:onClick="RadioButtonClicked"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Female"

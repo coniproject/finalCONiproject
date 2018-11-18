@@ -7,8 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class AccountDetailsRegistration extends AppCompatActivity {
+    DBHelper mydb;
 
     Button btnregister;
     EditText txtusername, txtpassword, txtconfirmpass;
@@ -18,6 +20,7 @@ public class AccountDetailsRegistration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_details_registration);
+        mydb= new DBHelper(this);
 
         btnregister = findViewById(R.id.btnregister);
         txtusername = findViewById(R.id.usernamereg);
@@ -25,6 +28,10 @@ public class AccountDetailsRegistration extends AppCompatActivity {
         txtconfirmpass = findViewById(R.id.confirmpass);
         chkterms = findViewById(R.id.chkconditions);
 
+        Register();
+
+    }
+    public void Register(){
         btnregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,5 +40,28 @@ public class AccountDetailsRegistration extends AppCompatActivity {
             }
         });
 
+        boolean isInserted = mydb.adduser ( txtusername.getText().toString(),
+                txtpassword.getText().toString());
+
+
+
+        if (isInserted) {
+
+            Toast.makeText(AccountDetailsRegistration.this, "You are now Registered.", Toast.LENGTH_LONG).show();
+
+            Intent toLogin = new Intent(AccountDetailsRegistration.this, UserLogin.class);
+            startActivity(toLogin);
+
+
+            txtusername.setText("");
+            txtpassword.setText("");
+            txtconfirmpass.setText("");
+
+
+
+        } else {
+            Toast.makeText(AccountDetailsRegistration.this, "Your username or email does already exists.", Toast.LENGTH_LONG).show();
+
+        }
     }
 }
