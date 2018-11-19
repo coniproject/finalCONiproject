@@ -41,7 +41,7 @@ public class AccountDetailsRegistration extends AppCompatActivity {
             btnregister.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    boolean isInserted = mydb.adduser (
+                    boolean isInserted = mydb.addlogin (
                             txtusername.getText().toString(),
                             txtpassword.getText().toString());
 

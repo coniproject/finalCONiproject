@@ -30,7 +30,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String tcol5 = "birthday";
     public static final String tcol6 = "age";
     public static final String tcol7 = "gender";
-    public static final String TABLE_NAME3 = "tbluser";
+    public static final String TABLE_NAME3 = "login";
     public static final String t3col1 = "username";
     public static final String t3col2 = "password";
 
@@ -45,25 +45,17 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE_NAME +" (userID INTEGER PRIMARY KEY AUTOINCREMENT Unique," +
-                "lname varchar not null," +
-                "fname varchar not null," +
-                "mi varchar not null," +
-                "birthday date not null," +
-                "age integer not null, " +
-                "gender varchar not null, " +
-                "email varchar not null," +
-                "cnumber integer not null)");
-//        db.execSQL("create table " +TABLE_NAME+ " ( " +
-//                ""+col1+" INTEGER primary key autoincrement unique, "
-//                +col2+" VARCHAR not null, "
-//                +col3+" VARCHAR not null, "
-//                +col4+" VARCHAR not null, "
-//                +col5+" DATE not null, "
-//                +col6+" INTEGER not null, "
-//                +col7+" VARCHAR not null, "
-//                +col8+" VARCHAR not null, "
-//                +col9+" INTEGER not null)");
+
+        db.execSQL("create table " +TABLE_NAME+ " ( " +
+                ""+col1+" INTEGER primary key autoincrement unique, "
+                +col2+" VARCHAR not null, "
+                +col3+" VARCHAR not null, "
+                +col4+" VARCHAR not null, "
+                +col5+" DATE not null, "
+                +col6+" INTEGER not null, "
+                +col7+" VARCHAR not null, "
+                +col8+" VARCHAR not null, "
+                +col9+" INTEGER not null)");
 
         db.execSQL("create table " +TABLE_NAME2+ " ( " +
                 ""+tcol1+" integer primary key autoincrement unique, "
@@ -117,7 +109,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    public boolean adduser(String password, String username) {
+    public boolean addlogin(String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(t3col1, username);
@@ -154,7 +146,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    public boolean adduser(Person person) {
+    public boolean addlogin(Person person) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(t3col1, person.getUsername());
@@ -163,8 +155,8 @@ public class DBHelper extends SQLiteOpenHelper {
         return result != -1;
     }
     //search for match uname and pass
-    public Cursor userlogin(String user, String pword, SQLiteDatabase db){
-        String query = "select * from login where username = '"+user+"' and password = '"+pword+"'";
+    public Cursor login(String username, String password, SQLiteDatabase db){
+        String query = "select * from login where username = '"+username+"' and password = '"+password+"'";
         Log.d("query", query);
         Cursor cursor = db.rawQuery(query, null);
         return cursor;

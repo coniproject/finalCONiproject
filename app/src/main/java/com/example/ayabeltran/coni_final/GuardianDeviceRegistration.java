@@ -18,19 +18,15 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 public class GuardianDeviceRegistration extends AppCompatActivity {
 
     DBHelper mydb;
-SQLiteDatabase pf;
+    SQLiteDatabase pf;
     private static final String Tag = "GuardianRegistration";
     Button btncontinue;
-    EditText txtlastname, txtfirstname, txtmi, txtage, txtemail, txtnumber;
-    RadioButton rdbtnmale, rdbtnfemale;
+    EditText txtlastname, txtfirstname, txtmi, txtage, txtemail, txtnumber, txtgender;
+    RadioButton radioButton;
+    RadioGroup radioGroup;
     private DatePickerDialog.OnDateSetListener mDataSetListener;
     private TextView txtbdate;
 
@@ -39,7 +35,7 @@ SQLiteDatabase pf;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guardian_device_registration);
 
-        mydb= new DBHelper(this);
+        mydb = new DBHelper(this);
 
         btncontinue = findViewById(R.id.btncontinue);
         txtlastname = findViewById(R.id.editlastname);
@@ -47,10 +43,11 @@ SQLiteDatabase pf;
         txtmi = findViewById(R.id.editmi);
         txtbdate = findViewById(R.id.editbdate);
         txtage = findViewById(R.id.editage);
-        rdbtnmale = findViewById(R.id.rdbmale);
-        rdbtnfemale = findViewById(R.id.rdbfemale);
+//        rdbtnmale = findViewById(R.id.rdbmale);
+//        rdbtnfemale = findViewById(R.id.rdbfemale);
         txtemail = findViewById(R.id.editemailadd);
         txtnumber = findViewById(R.id.editcontactnumber);
+        txtgender = findViewById(R.id.editgender);
 //        btncontinue.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -59,9 +56,9 @@ SQLiteDatabase pf;
 //                startActivity(toAccountDetails);
 //            }
 //        });
-       Register();
+        Register();
 
-       //DATE
+        //DATE
 
 //        txtbdate.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -98,8 +95,8 @@ SQLiteDatabase pf;
 
     }
 
-//    //RDBUTON
-//    public void RadioButtonClicked(View view) {
+    //RDBUTON
+//    public void checkButton(View view) {
 //
 ////This variable will store whether the user was male or female
 //        String gender = "";
@@ -117,19 +114,21 @@ SQLiteDatabase pf;
 //                    gender = "male";
 //                break;
 //        }
-//        pf.execSQL("INSERT INTO tblguardian VALUES('"+gender+"');");
+//        pf.execSQL("INSERT INTO tblguardian VALUES('"+ gender +"')");
 //    }
-    public void Register(){
+
+
+    public void Register() {
         btncontinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isInserted = mydb.addguardian (
+                boolean isInserted = mydb.addguardian(
                         txtlastname.getText().toString(),
                         txtfirstname.getText().toString(),
                         txtmi.getText().toString(),
                         txtbdate.getText().toString(),
                         txtage.getText().toString(),
-                        rdbtnfemale.getText().toString(),
+                        txtgender.getText().toString(),
                         txtemail.getText().toString(),
                         txtnumber.getText().toString());
 
@@ -148,28 +147,29 @@ SQLiteDatabase pf;
                     txtbdate.setText("");
                     txtnumber.setText("");
                     txtemail.setText("");
+                    txtgender.setText("");
 
                 } else {
                     Toast.makeText(GuardianDeviceRegistration.this, "your email or username is already in use.", Toast.LENGTH_LONG).show();
 
                 }
             }
+
+
+//   private int calculateAge(long bdate) {
+//        Calendar dob = Calendar.getInstance();
+//        dob.setTimeInMillis(bdate);
+//        Calendar today = Calendar.getInstance();
+//        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+//        if (today.get(Calendar.DAY_OF_MONTH) < dob.get(Calendar.DAY_OF_MONTH)) {
+//            age--;
+//        }
+//        return age;
+//    }
+
+
         });
-
-
     }
 
-
-   private int calculateAge(long bdate) {
-        Calendar dob = Calendar.getInstance();
-        dob.setTimeInMillis(bdate);
-        Calendar today = Calendar.getInstance();
-        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
-        if (today.get(Calendar.DAY_OF_MONTH) < dob.get(Calendar.DAY_OF_MONTH)) {
-            age--;
-        }
-        return age;
-    }
 
 }
-

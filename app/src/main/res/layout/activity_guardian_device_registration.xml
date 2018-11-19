@@ -75,38 +75,48 @@
                 android:inputType="number"
 
                 />
-            
-            <RadioGroup
+
+            <EditText
+                android:id="@+id/editgender"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="20sp">
-                
-                <RadioButton
-                    android:id="@+id/rdbmale"
-                    android:onClick="RadioButtonClicked"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Male"
-                    android:textSize="20sp"
-                    android:textColorHint="@color/colorPrimary"
-                    android:gravity="center"
-                    android:paddingLeft="5sp"
-                    android:layout_marginRight="10sp"/>
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="Gender"
 
-                <RadioButton
-                    android:id="@+id/rdbfemale"
-                    android:onClick="RadioButtonClicked"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Female"
-                    android:textSize="20sp"
-                    android:textColorHint="@color/colorPrimary"
-                    android:gravity="center"
-                    android:paddingLeft="5sp"
-                    />
+                />
+            <!--<RadioGroup-->
+                <!--android:id="@+id/radiogroup"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_marginTop="20sp">-->
+                <!---->
+                <!--<RadioButton-->
+                    <!--android:id="@+id/rdbmale"-->
+                    <!--android:onClick="checkButton"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/male"-->
+                    <!--android:textSize="20sp"-->
+                    <!--android:textColorHint="@color/colorPrimary"-->
+                    <!--android:gravity="center"-->
+                    <!--android:paddingLeft="5sp"-->
+                    <!--android:layout_marginRight="10sp"/>-->
 
-            </RadioGroup>
+                <!--<RadioButton-->
+                    <!--android:id="@+id/rdbfemale"-->
+                    <!--android:onClick="checkButton"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/female"-->
+                    <!--android:textSize="20sp"-->
+                    <!--android:textColorHint="@color/colorPrimary"-->
+                    <!--android:gravity="center"-->
+                    <!--android:paddingLeft="5sp"-->
+                    <!--/>-->
+
+            <!--</RadioGroup>-->
 
             <EditText
                 android:id="@+id/editemailadd"

@@ -82,26 +82,26 @@ public class FamilyRegistration extends AppCompatActivity {
 
     }
     //RDBUTON
-    public void RadioButtonClicked(View view) {
-
-//This variable will store whether the user was male or female
-        String userGender = "";
-// Check that the button is  now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-
-// Check which radio button was clicked
-        switch (view.getId()) {
-            case R.id.rdbfemale:
-                if (checked)
-                    userGender = "female";
-                break;
-            case R.id.rdbmale:
-                if (checked)
-                    userGender = "male";
-                break;
-        }
-        pf.execSQL("INSERT INTO tblguardian VALUES('"+userGender+"');");
-    }
+//    public void RadioButtonClicked(View view) {
+//
+////This variable will store whether the user was male or female
+//        String userGender = "";
+//// Check that the button is  now checked?
+//        boolean checked = ((RadioButton) view).isChecked();
+//
+//// Check which radio button was clicked
+//        switch (view.getId()) {
+//            case R.id.rdbfemale:
+//                if (checked)
+//                    userGender = "female";
+//                break;
+//            case R.id.rdbmale:
+//                if (checked)
+//                    userGender = "male";
+//                break;
+//        }
+//        pf.execSQL("INSERT INTO tblguardian VALUES('"+userGender+"');");
+//    }
     public void Register(){
         btncontinue.setOnClickListener(new View.OnClickListener() {
             @Override

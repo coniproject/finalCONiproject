@@ -38,7 +38,7 @@ public class UserLogin extends AppCompatActivity {
                 sqLiteDatabase = mydb.getReadableDatabase();
                 String username = usernamelogin.getText().toString();
                 String password = passwordlogin.getText().toString();
-                Cursor res = mydb.userlogin(username, password, sqLiteDatabase);
+                Cursor res = mydb.login(username, password, sqLiteDatabase);
 
                 if(res.moveToFirst()){
                     Intent intent = new Intent(UserLogin.this,UserProfile.class);
