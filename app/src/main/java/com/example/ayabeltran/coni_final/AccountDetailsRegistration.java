@@ -27,41 +27,47 @@ public class AccountDetailsRegistration extends AppCompatActivity {
         txtpassword = findViewById(R.id.passwordreg);
         txtconfirmpass = findViewById(R.id.confirmpass);
         chkterms = findViewById(R.id.chkconditions);
-
+//        btnregister.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent toUserProfile = new Intent(AccountDetailsRegistration.this, UserProfile.class );
+//                startActivity(toUserProfile);
+//            }
+//        });
         Register();
 
     }
     public void Register(){
-        btnregister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent toUserProfile = new Intent(AccountDetailsRegistration.this, UserProfile.class );
-                startActivity(toUserProfile);
-            }
-        });
-
-        boolean isInserted = mydb.adduser ( txtusername.getText().toString(),
-                txtpassword.getText().toString());
+            btnregister.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    boolean isInserted = mydb.adduser (
+                            txtusername.getText().toString(),
+                            txtpassword.getText().toString());
 
 
 
-        if (isInserted) {
+                    if (isInserted) {
 
-            Toast.makeText(AccountDetailsRegistration.this, "You are now Registered.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(AccountDetailsRegistration.this, "You are now Registered.", Toast.LENGTH_LONG).show();
 
-            Intent toLogin = new Intent(AccountDetailsRegistration.this, UserLogin.class);
-            startActivity(toLogin);
-
-
-            txtusername.setText("");
-            txtpassword.setText("");
-            txtconfirmpass.setText("");
+                        Intent toUserProfile = new Intent(AccountDetailsRegistration.this, UserProfile.class);
+                        startActivity(toUserProfile);
 
 
+                        txtusername.setText("");
+                        txtpassword.setText("");
+                        txtconfirmpass.setText("");
 
-        } else {
-            Toast.makeText(AccountDetailsRegistration.this, "Your username or email does already exists.", Toast.LENGTH_LONG).show();
 
-        }
+
+                    } else {
+                        Toast.makeText(AccountDetailsRegistration.this, "Your username or email does already exists.", Toast.LENGTH_LONG).show();
+
+                    }
+                }
+            });
+
+
     }
 }

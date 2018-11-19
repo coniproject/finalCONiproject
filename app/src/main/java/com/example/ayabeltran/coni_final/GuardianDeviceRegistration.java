@@ -51,7 +51,14 @@ SQLiteDatabase pf;
         rdbtnfemale = findViewById(R.id.rdbfemale);
         txtemail = findViewById(R.id.editemailadd);
         txtnumber = findViewById(R.id.editcontactnumber);
-
+//        btncontinue.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent toAccountDetails = new Intent(GuardianDeviceRegistration.this, AccountDetailsRegistration.class);
+//                startActivity(toAccountDetails);
+//            }
+//        });
        Register();
 
        //DATE
@@ -91,66 +98,65 @@ SQLiteDatabase pf;
 
     }
 
-    //RDBUTON
-    public void RadioButtonClicked(View view) {
-
-//This variable will store whether the user was male or female
-        String gender = "";
-// Check that the button is  now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-
-// Check which radio button was clicked
-        switch (view.getId()) {
-            case R.id.rdbfemale:
-                if (checked)
-                    gender = "female";
-                break;
-            case R.id.rdbmale:
-                if (checked)
-                    gender = "male";
-                break;
-        }
-        pf.execSQL("INSERT INTO tblguardian VALUES('"+gender+"');");
-    }
+//    //RDBUTON
+//    public void RadioButtonClicked(View view) {
+//
+////This variable will store whether the user was male or female
+//        String gender = "";
+//// Check that the button is  now checked?
+//        boolean checked = ((RadioButton) view).isChecked();
+//
+//// Check which radio button was clicked
+//        switch (view.getId()) {
+//            case R.id.rdbfemale:
+//                if (checked)
+//                    gender = "female";
+//                break;
+//            case R.id.rdbmale:
+//                if (checked)
+//                    gender = "male";
+//                break;
+//        }
+//        pf.execSQL("INSERT INTO tblguardian VALUES('"+gender+"');");
+//    }
     public void Register(){
         btncontinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                boolean isInserted = mydb.addguardian (
+                        txtlastname.getText().toString(),
+                        txtfirstname.getText().toString(),
+                        txtmi.getText().toString(),
+                        txtbdate.getText().toString(),
+                        txtage.getText().toString(),
+                        rdbtnfemale.getText().toString(),
+                        txtemail.getText().toString(),
+                        txtnumber.getText().toString());
 
-                Intent toAccountDetails = new Intent(GuardianDeviceRegistration.this, AccountDetailsRegistration.class);
-                startActivity(toAccountDetails);
+                if (isInserted) {
+
+                    Toast.makeText(GuardianDeviceRegistration.this, "you are now registered.", Toast.LENGTH_LONG).show();
+
+                    Intent toAccountDetails = new Intent(GuardianDeviceRegistration.this, AccountDetailsRegistration.class);
+                    startActivity(toAccountDetails);
+
+
+                    txtfirstname.setText("");
+                    txtlastname.setText("");
+                    txtmi.setText("");
+                    txtage.setText("");
+                    txtbdate.setText("");
+                    txtnumber.setText("");
+                    txtemail.setText("");
+
+                } else {
+                    Toast.makeText(GuardianDeviceRegistration.this, "your email or username is already in use.", Toast.LENGTH_LONG).show();
+
+                }
             }
         });
 
-        boolean isInserted = mydb.addguardian ( txtlastname.getText().toString(),
-                txtfirstname.getText().toString(),
-                txtmi.getText().toString(),
-                txtbdate.getText().toString(),
-                txtage.getText().toString(),
-                rdbtnfemale.getText().toString(),
-                txtemail.getText().toString(),
-                txtnumber.getText().toString());
 
-        if (isInserted) {
-
-            Toast.makeText(GuardianDeviceRegistration.this, "you are now registered.", Toast.LENGTH_LONG).show();
-
-            Intent toLogin = new Intent(GuardianDeviceRegistration.this, UserLogin.class);
-            startActivity(toLogin);
-
-
-            txtfirstname.setText("");
-            txtlastname.setText("");
-            txtmi.setText("");
-            txtage.setText("");
-            txtbdate.setText("");
-            txtnumber.setText("");
-            txtemail.setText("");
-
-        } else {
-            Toast.makeText(GuardianDeviceRegistration.this, "your email or username is already in use.", Toast.LENGTH_LONG).show();
-
-        }
     }
 
 

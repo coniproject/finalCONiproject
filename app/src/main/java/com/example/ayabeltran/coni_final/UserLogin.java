@@ -36,15 +36,15 @@ public class UserLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sqLiteDatabase = mydb.getReadableDatabase();
-                String user = usernamelogin.getText().toString();
-                String pword = passwordlogin.getText().toString();
-                Cursor res = mydb.userlogin(user, pword, sqLiteDatabase);
+                String username = usernamelogin.getText().toString();
+                String password = passwordlogin.getText().toString();
+                Cursor res = mydb.userlogin(username, password, sqLiteDatabase);
 
                 if(res.moveToFirst()){
-                    Intent intent = new Intent(UserLogin.this,List.class);
+                    Intent intent = new Intent(UserLogin.this,UserProfile.class);
                     startActivity(intent);
 
-                    Toast.makeText(UserLogin.this, "Welcome "+user+"!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UserLogin.this, "Welcome "+username+"!", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Toast.makeText(UserLogin.this, "your username and password do not match.", Toast.LENGTH_LONG).show();
